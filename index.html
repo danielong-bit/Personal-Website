@@ -484,10 +484,11 @@ async function adminPage(){
   h+='<section class="admin-section"><div class="admin-section-head"><div><span class="tag">SPONSORED BANNERS</span><h2>Referral ads</h2></div><button id="newAd" class="btn primary">+ New ad</button></div><div class="admin-layout"><div class="panel admin-list">';
   if(ads.length){ads.forEach(a=>{h+='<div class="admin-row"><div class="admin-ad-summary">'+(a.image_url?'<img src="'+E(a.image_url)+'" alt="">':'')+'<div><b>'+E(a.sponsor_name)+' — '+E(a.title)+'</b><div class="small">'+E(a.placement)+' · '+(a.is_active?'Active':'Off')+'</div></div></div><div class="admin-row-actions"><button class="btn ghost edit-ad" data-id="'+E(a.id)+'">Edit</button><button class="btn ghost toggle-ad" data-id="'+E(a.id)+'" data-active="'+(a.is_active?'1':'0')+'">'+(a.is_active?'Turn off':'Turn on')+'</button></div></div>'})}else{h+='<div class="empty">No banners yet.</div>'}
   h+='</div><form id="adForm" class="panel form admin-form"><input type="hidden" name="id"><h3 id="adFormTitle">Add referral banner</h3>';
+  h+='<label>Paste website banner HTML <span class="small">(recommended)</span><textarea class="input" name="banner_html" rows="7" placeholder="Paste the HTML code Chainers / RollerCoin gives you here..."></textarea></label><div id="bannerDetected" class="notice hide"></div>';
   h+='<label>Sponsor / network<input class="input" name="sponsor_name" required placeholder="Chainers"></label><label>Ad title<input class="input" name="title" required placeholder="Play Chainers for crypto rewards"></label><label>Small description<textarea class="input" name="body" rows="3"></textarea></label>';
-  h+='<label>Banner image URL<input class="input" name="image_url" type="url" placeholder="https://.../banner.png"></label><label>Your referral link<input class="input" name="destination_url" type="url" required placeholder="https://chainers.io/?r=..."></label>';
+  h+='<label>Banner image URL <span class="small">(auto-filled from HTML)</span><input class="input" name="image_url" type="url" placeholder="https://.../banner.png"></label><label>Your referral link <span class="small">(auto-filled from HTML)</span><input class="input" name="destination_url" type="url" required placeholder="https://chainers.io/?r=..."></label>';
   h+='<div class="admin-two"><label>Button text<input class="input" name="cta_label" value="Learn more"></label><label>Placement<select name="placement"><option value="home">Homepage banner</option><option value="explore">Browse page banner</option><option value="browse_grid">Inside browse page</option><option value="sidebar">Product page sidebar</option></select></label></div>';
-  h+='<label class="check"><input type="checkbox" name="is_active" checked> Active</label><div id="adPreview" class="ad-preview small">Paste a banner image URL to preview it here.</div><button class="btn primary">Save ad</button><div id="adMsg" class="small"></div></form></div></section></div>';
+  h+='<label class="check"><input type="checkbox" name="is_active" checked> Active</label><div id="adPreview" class="ad-preview small">Paste banner HTML or an image URL to preview it here.</div><button class="btn primary">Save ad</button><div id="adMsg" class="small"></div></form></div></section></div>';
 
   app.innerHTML=h;
   wireAdmin(ps,ads)
@@ -516,8 +517,32 @@ function wireAdmin(ps,ads){
     m.textContent='Saved.';toast('Store item saved');await pub();adminPage()
   });
 
-  document.getElementById('newAd').addEventListener('click',()=>{af.reset();af.id.value='';af.cta_label.value='Learn more';af.is_active.checked=true;document.getElementById('adFormTitle').textContent='Add referral banner';document.getElementById('adPreview').innerHTML='Paste a banner image URL to preview it here.';af.scrollIntoView({behavior:'smooth',block:'start'})});
-  let preview=()=>{let u=af.image_url.value.trim();document.getElementById('adPreview').innerHTML=u?'<img src="'+E(u)+'" alt="Banner preview">':'Paste a banner image URL to preview it here.'};
+  document.getElementById('newAd').addEventListener('click',()=>{af.reset();af.id.value='';af.cta_label.value='Learn more';af.is_active.checked=true;document.getElementById('adFormTitle').textContent='Add referral banner';document.getElementById('adPreview').innerHTML='Paste banner HTML or an image URL to preview it here.';document.getElementById('bannerDetected').classList.add('hide');af.scrollIntoView({behavior:'smooth',block:'start'})});
+  let preview=()=>{let u=af.image_url.value.trim();document.getElementById('adPreview').innerHTML=u?'<img src="'+E(u)+'" alt="Banner preview">':'Paste banner HTML or an image URL to preview it here.'};
+  function parseBannerHtml(){
+    let raw=af.banner_html.value.trim(),det=document.getElementById('bannerDetected');
+    if(!raw){det.classList.add('hide');return}
+    try{
+      let doc=new DOMParser().parseFromString(raw,'text/html'),link=doc.querySelector('a[href]'),img=doc.querySelector('img[src]');
+      if(link)af.destination_url.value=link.href;
+      if(img){
+        af.image_url.value=img.src;
+        if(!af.title.value&&img.alt)af.title.value=img.alt;
+      }
+      if(!af.sponsor_name.value&&link&&/chainers/i.test(link.href))af.sponsor_name.value='Chainers';
+      let w=img?.getAttribute('width'),h=img?.getAttribute('height'),parts=[];
+      if(link)parts.push('Referral link detected');
+      if(img)parts.push('Banner image detected');
+      if(w&&h)parts.push('Size '+w+'×'+h+' px');
+      det.textContent=parts.length?'✓ '+parts.join(' · '):'Could not detect an <a> link or <img> banner in this code.';
+      det.classList.remove('hide');
+      preview()
+    }catch(err){
+      det.textContent='Could not read this banner code.';
+      det.classList.remove('hide')
+    }
+  }
+  af.banner_html.addEventListener('input',parseBannerHtml);
   af.image_url.addEventListener('input',preview);
 
   document.querySelectorAll('.edit-ad').forEach(b=>b.addEventListener('click',()=>{let a=ads.find(x=>x.id===b.dataset.id);if(!a)return;af.id.value=a.id;af.sponsor_name.value=a.sponsor_name||'';af.title.value=a.title||'';af.body.value=a.body||'';af.image_url.value=a.image_url||'';af.destination_url.value=a.destination_url||'';af.cta_label.value=a.cta_label||'Learn more';af.placement.value=a.placement||'home';af.is_active.checked=!!a.is_active;document.getElementById('adFormTitle').textContent='Edit referral banner';preview();af.scrollIntoView({behavior:'smooth',block:'start'})}));
