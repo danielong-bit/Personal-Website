@@ -1452,6 +1452,56 @@ body:not(.vertex-home-mode) .tabs .on{background:#151b24!important;color:#fff!im
   .vertex-home-mode .vx-cta2{top:auto!important}
 }
 </style>
+
+<style id="store-home-v2">
+.store-home{background:#020204;color:#f5f7fa;min-height:100vh;padding-bottom:72px}
+.store-hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.07);background:
+ radial-gradient(circle at 76% 34%,rgba(53,216,255,.12),transparent 28%),
+ radial-gradient(circle at 18% 12%,rgba(78,102,255,.08),transparent 26%),
+ linear-gradient(180deg,#05080d,#020204)}
+.store-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.34),transparent 85%)}
+.store-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(440px,.96fr);gap:72px;align-items:center;min-height:650px;padding-top:64px;padding-bottom:64px}
+.store-hero-copy h1{margin:22px 0 20px;max-width:780px;font-size:clamp(4rem,6.7vw,7rem);line-height:.88;letter-spacing:-.075em;font-weight:800;color:#fff}
+.store-hero-copy h1 span{color:#35d8ff}
+.store-hero-copy>p{max-width:650px;margin:0;color:#96a1ad;font-size:1.05rem;line-height:1.75}
+.store-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.store-hero-actions .btn{min-height:48px;padding:0 20px}
+.store-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+.store-proof span{display:flex;flex-direction:column;gap:4px}.store-proof b{font-size:.82rem;color:#eaf7fb}.store-proof small{font-size:.72rem;line-height:1.5;color:#6f7c89}
+.store-hero-visual{position:relative;height:510px}
+.hero-orbit{position:absolute;left:50%;top:50%;width:430px;height:430px;border:1px solid rgba(53,216,255,.12);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 120px rgba(53,216,255,.06),inset 0 0 80px rgba(53,216,255,.025)}
+.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);inset:52px}.hero-orbit:after{inset:116px;border-color:rgba(53,216,255,.09)}
+.hero-product{position:absolute;width:250px;padding:10px;border:1px solid rgba(255,255,255,.10);border-radius:20px;background:rgba(8,13,20,.88);backdrop-filter:blur(16px);box-shadow:0 24px 65px rgba(0,0,0,.42);transition:.22s transform,.22s border-color}
+.hero-product:hover{transform:translateY(-6px)!important;border-color:rgba(53,216,255,.32)}
+.hero-product-img{position:relative;height:150px;border-radius:13px;overflow:hidden;background:#0d1721}
+.hero-product-img img{width:100%;height:100%;object-fit:cover}.hero-product-img span{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(2,5,9,.65))}
+.hero-product small{display:block;margin:11px 4px 4px;color:#65e2fb;font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-style:normal}
+.hero-product b{display:block;margin:0 4px;color:#f5f7fa;font-size:.9rem;line-height:1.35}
+.hero-product em{display:block;margin:8px 4px 2px;color:#35d8ff;font-size:.78rem;font-weight:700;font-style:normal}
+.hero-product.hp1{left:1%;top:45px;transform:rotate(-5deg)}.hero-product.hp2{right:0;top:145px;transform:rotate(5deg)}.hero-product.hp3{left:19%;bottom:0;transform:rotate(-1deg)}
+.store-home .home-section{padding-top:72px}
+.home-featured-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.home-featured-grid .cover{height:220px}
+.home-featured-grid .cover-shade{background:linear-gradient(180deg,rgba(2,4,7,.05) 30%,rgba(2,4,7,.82) 100%)}
+.home-featured-grid .badge{background:rgba(2,6,10,.72)!important;color:#eaf7fb!important;border-color:rgba(255,255,255,.12)!important}
+.home-featured-grid .body{min-height:205px;display:flex;flex-direction:column}.home-featured-grid .body p{flex:1}
+.home-category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.home-category-card{position:relative;min-height:150px;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(145deg,#090d12,#06090d);transition:.2s}
+.home-category-card:hover{transform:translateY(-3px);border-color:rgba(53,216,255,.28);background:linear-gradient(145deg,#0b1219,#071018)}
+.home-category-card>span{position:absolute;right:18px;top:16px;color:#35d8ff}.home-category-card b{display:block;margin-top:36px;color:#f5f7fa;font-size:1.05rem}.home-category-card small{display:block;margin-top:8px;color:#798592;line-height:1.55}
+.home-commerce-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.home-commerce-card{padding:34px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:#080c11}
+.home-commerce-card.accent{background:radial-gradient(circle at 92% 14%,rgba(53,216,255,.13),transparent 32%),linear-gradient(145deg,#09131b,#070a0f);border-color:rgba(53,216,255,.16)}
+.home-commerce-card h2{margin:17px 0 12px;font-size:clamp(1.55rem,2.4vw,2.35rem);line-height:1.08;letter-spacing:-.045em}.home-commerce-card p{max-width:560px;margin:0 0 22px;color:#85919e;line-height:1.7}
+.home-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.home-steps article{padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:#080c11}.home-steps i{display:block;color:#35d8ff;font-size:.75rem;font-style:normal;letter-spacing:.12em}.home-steps b{display:block;margin-top:30px;font-size:1.1rem}.home-steps p{margin:8px 0 0;color:#7d8895;font-size:.84rem;line-height:1.6}
+.home-sponsored{padding-bottom:28px}
+@media(max-width:980px){
+ .store-hero-grid{grid-template-columns:1fr;gap:26px;min-height:auto}.store-hero-visual{height:430px}.store-hero-copy h1{font-size:clamp(3.8rem,10vw,6.2rem)}.home-featured-grid{grid-template-columns:repeat(2,1fr)}.home-category-grid{grid-template-columns:repeat(2,1fr)}.home-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+ .store-hero-grid{padding-top:44px;padding-bottom:38px}.store-hero-copy h1{font-size:clamp(3rem,15vw,4.5rem)}.store-proof{grid-template-columns:1fr;gap:14px}.store-hero-visual{height:420px}.hero-orbit{width:310px;height:310px}.hero-product{width:190px}.hero-product-img{height:112px}.hero-product.hp1{left:0;top:28px}.hero-product.hp2{right:-8px;top:138px}.hero-product.hp3{left:13%;bottom:6px}.home-featured-grid,.home-category-grid,.home-commerce-grid,.home-steps{grid-template-columns:1fr}.store-home .home-section{padding-top:54px}.home-featured-grid .cover{height:210px}
+}
+</style>
 </head><body><header class="top"><div class="w nav"><a class="brand" href="#/">Prompt<b>Lab</b></a><nav class="links"><a href="#/explore">Explore</a><a href="#/categories">Categories</a><a href="#/membership">Membership</a><a href="#/library">Library</a><a href="#/wallet">Credits</a><a href="#/about">How it works</a></nav><a id="adminLink" class="btn ghost hide" href="#/admin">Admin</a><a id="cp" class="pill hide" href="#/wallet">● <span id="bal">0</span></a><a id="auth" class="btn ghost" href="#/account">Log in</a></div></header><main id="app"><div class="w page"><div class="panel">Loading store…</div></div></main><footer class="footer"><div class="w row"><b>PromptLab</b><div class="policy-links small"><a href="#/rights">Copyright & Content</a><a href="#/privacy">Privacy</a><span>Sponsored placements are clearly labeled.</span></div></div></footer><div id="toast" class="toast"></div><script type="module">import{createClient}from'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';const sb=createClient('https://gfgqlkybtnnrcmneupah.supabase.co','sb_publishable_Nk8ZMj7PqNIcdgfq8DVPCQ_7_iYcP2G'),app=document.getElementById('app'),A=document.getElementById('auth'),CP=document.getElementById('cp'),BAL=document.getElementById('bal'),ADMIN=document.getElementById('adminLink');const s={u:null,p:null,w:{balance:0},membership:{tier:'customer',status:'active'},un:new Set(),fav:new Set(),ps:[],cs:[],ads:[],plans:[],packs:[],admin:false};const E=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const R=()=>location.hash.replace(/^#/,'')||'/';const G=x=>location.hash='#'+x;const SID=sessionStorage.getItem('pl_session')||crypto.randomUUID();sessionStorage.setItem('pl_session',SID);let PAGE_STARTED=Date.now(),LAST_PATH='';async function track(event_type,extra={}){try{await sb.from('analytics_events').insert({session_id:SID,user_id:s.u?.id||null,event_type,path:extra.path||null,product_id:extra.product_id||null,referrer:extra.referrer||null,duration_seconds:extra.duration_seconds??null,metadata:extra.metadata||{}})}catch(e){}}function trackPage(path){if(LAST_PATH){let d=Math.round((Date.now()-PAGE_STARTED)/1000);if(d>=2)track('page_time',{path:LAST_PATH,duration_seconds:Math.min(d,3600)})}PAGE_STARTED=Date.now();LAST_PATH=path;track('page_view',{path,referrer:document.referrer||null,metadata:{language:navigator.language||null}})}document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&LAST_PATH){let d=Math.round((Date.now()-PAGE_STARTED)/1000);if(d>=2)track('page_time',{path:LAST_PATH,duration_seconds:Math.min(d,3600)});PAGE_STARTED=Date.now()}});function toast(x){let t=document.getElementById('toast');t.textContent=x;t.className='toast show';setTimeout(()=>t.className='toast',2400)}async function pub(){let[p,c,a,pl,pk]=await Promise.all([sb.from('prompts').select('*,categories(name,slug)').eq('status','published').order('is_featured',{ascending:false}),sb.from('categories').select('*').order('sort_order'),sb.from('ads').select('*').eq('is_active',true),sb.from('membership_plans').select('*').eq('is_active',true).order('sort_order'),sb.from('credit_packs').select('*').eq('is_active',true).order('sort_order')]);s.ps=p.data||[];s.cs=c.data||[];s.ads=a.data||[];s.plans=pl.data||[];s.packs=pk.data||[]}async function usr(){if(!s.u)return;let id=s.u.id,[p,w,u,f,adm,mem]=await Promise.all([sb.from('profiles').select('*').eq('id',id).maybeSingle(),sb.from('wallets').select('*').eq('user_id',id).maybeSingle(),sb.from('prompt_unlocks').select('prompt_id').eq('user_id',id),sb.from('favorites').select('prompt_id').eq('user_id',id),sb.from('admin_users').select('user_id').eq('user_id',id).maybeSingle(),sb.from('memberships').select('*').eq('user_id',id).maybeSingle()]);s.p=p.data;s.w=w.data||{balance:0};s.membership=mem.data||{tier:'customer',status:'active'};s.un=new Set((u.data||[]).map(x=>x.prompt_id));s.fav=new Set((f.data||[]).map(x=>x.prompt_id));s.admin=!!adm.data}function nav(){if(s.u){A.textContent=s.p?.display_name||s.u.email.split('@')[0];CP.classList.remove('hide');BAL.textContent=s.w.balance}else{A.textContent='Log in';CP.classList.add('hide')}ADMIN?.classList.toggle('hide',!s.admin)}function ad(place){let a=s.ads.find(x=>x.placement===place)||(place==='sidebar'?s.ads.find(x=>x.placement==='prompt_detail'):null);if(!a)return'';if(a.image_url)return '<aside class="ad ad-banner '+(place==='sidebar'?'ad-side':'')+'"><div class="ad-label">Sponsored · '+E(a.sponsor_name)+'</div><a class="ad-image-link sponsored-link" data-ad-id="'+E(a.id)+'" target="_blank" rel="sponsored noopener" href="'+E(a.destination_url)+'"><img class="ad-image" src="'+E(a.image_url)+'" alt="'+E(a.sponsor_name)+' banner"></a></aside>';return '<aside class="ad"><div class="ad-copy"><small>Sponsored · '+E(a.sponsor_name)+'</small><h4>'+E(a.title)+'</h4><p>'+E(a.body||'')+'</p></div><a class="btn sponsored-link" data-ad-id="'+E(a.id)+'" target="_blank" rel="sponsored noopener" href="'+E(a.destination_url)+'">'+E(a.cta_label||'Learn more')+' ↗</a></aside>'}function typeIcon(p){let t=(p.product_type||'').toLowerCase();if(t.includes('code'))return '💻';if(t.includes('workflow')||t.includes('automation'))return '⚙️';if(t.includes('template'))return '🧩';if(t.includes('guide')||t.includes('tutorial'))return '📘';if(t.includes('bundle')||t.includes('pack'))return '📦';if(t.includes('prompt'))return '✨';return '📄'}function rightsLabel(v){return({original:'Original',licensed:'Licensed',public_domain:'Public domain',open_license:'Open license',curated_summary:'Curated summary',affiliate_external:'Affiliate / external'})[v]||'Original'}
 function activePlan(){return s.plans.find(x=>x.tier==='member')||s.plans[0]||null}
 function isMember(){return ['member','vip'].includes(s.membership?.tier)&&s.membership?.status==='active'}
@@ -1460,38 +1510,92 @@ function creditsPrice(p){let base=Number(p.price_coins||0);if(!p.member_discount
 function cashPrice(p){let base=Number(p.price_myr||0);if(!p.member_discount_eligible||!isMember())return base;return Math.round(base*(100-memberDiscount()))/100}
 function hasAccess(p){return s.un.has(p.id)||(+p.price_coins===0&&(!p.member_only||isMember()))}
 function money(v){return 'RM'+Number(v||0).toFixed(2)}
-function card(p){let o=hasAccess(p),photo=p.cover_image_url?`<img class='cover-photo' src='${E(p.cover_image_url)}' alt=''><span class='cover-shade'></span>`:'';return `<article class='card'><a href='#/product/${E(p.slug)}'><div class='cover ${p.cover_style==='cyan'?'cyan':p.cover_style==='gold'?'gold':''}'>${photo}<span class='badge'>${E(p.product_type||'Digital Resource')}</span><div class='emoji'>${typeIcon(p)}</div></div><div class='body'><div class='meta'>${E(p.categories?.name||'Digital Resource')} · ${E(p.model||'General')} · v${E(p.version||'1.0')}</div><h3>${E(p.title)}</h3><p>${E(p.short_description)}</p>${p.member_only?`<span class='member-only'>MEMBER ONLY</span>`:''}<div class='foot'>${o?`<span class='owned'>✓ ${+p.price_coins===0?'Free':'Owned'}</span>`:`<span class='price'>${money(cashPrice(p))} · ● ${creditsPrice(p)}</span>`}<span>Open →</span></div></div></a></article>`}
+function card(p){let o=hasAccess(p),photo=p.cover_image_url?`<img class='cover-photo' src='${E(p.cover_image_url)}' alt='${E(p.title)} cover' loading='lazy'><span class='cover-shade'></span>`:'';return `<article class='card'><a href='#/product/${E(p.slug)}'><div class='cover ${p.cover_style==='cyan'?'cyan':p.cover_style==='gold'?'gold':''}'>${photo}<span class='badge'>${E(p.product_type||'Digital Resource')}</span>${photo?'':`<div class='emoji'>${typeIcon(p)}</div>`}</div><div class='body'><div class='meta'>${E(p.categories?.name||'Digital Resource')} · ${E(p.model||'General')} · v${E(p.version||'1.0')}</div><h3>${E(p.title)}</h3><p>${E(p.short_description)}</p>${p.member_only?`<span class='member-only'>MEMBER ONLY</span>`:''}<div class='foot'>${o?`<span class='owned'>✓ ${+p.price_coins===0?'Free':'Owned'}</span>`:`<span class='price'>${money(cashPrice(p))} · ● ${creditsPrice(p)}</span>`}<span>Open →</span></div></div></a></article>`}
 function home(){
-const B='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/';
-return '<section class="vx-stage" aria-label="PromptLab homepage">'+
-'<div class="vx-bg"></div><div id="vxStA" class="vx-stars"></div><div id="vxStB" class="vx-stars"></div>'+
-'<div class="vx-canvas" id="vxCanvas">'+
-'<div class="vx-showcase"><div id="vxRing" class="vx-ring"></div></div>'+
-'<div class="vx-browser"><div class="vx-bar"><div class="vx-dots"><i style="background:#ee5c62"></i><i style="background:#f6b719"></i><i style="background:#12c02f"></i></div>'+
-'<div class="vx-omni"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.8-3.8"></path></svg><span>PromptLab — Digital Marketplace</span></div>'+
-'<div class="vx-tools"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 16V4m0 0L8 8m4-4 4 4M4 15v5h16v-5"></path></svg><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 5v14M5 12h14"></path></svg><svg viewBox="0 0 24 24" fill="none"><path fill="#fff" opacity=".95" d="M12 3 3 8l9 5 9-5-9-5Z"></path><path stroke="#fff" opacity=".55" d="m3 13 9 5 9-5"></path></svg></div></div>'+
-'<div class="vx-page"><div class="vx-ann"><u style="left:20px">‹</u><span>Curated digital resources · preview before you buy</span><u style="right:20px">›</u></div>'+
-'<div class="vx-shoplogo"><em>PROMPT</em><i>LAB</i></div>'+
-'<div class="vx-pagebody"><div class="vx-pghero"><img alt="Warm amber and ivory skincare collection in golden morning light" src="'+B+'hf_20260912_110504_0316394c-37bd-432b-a1f2-ee46a461c22b.png"><div class="scrim"></div><div class="vx-pgcopy"><u>Featured resource</u><em>Build better.<br>Learn faster.</em><i>EXPLORE TODAY</i></div></div>'+
-'<div class="vx-pgsec"><b>Popular resources</b><u>see more</u></div>'+
-'<div class="vx-pggrid">'+
-'<div class="vx-pgcard"><div class="ph"><img alt="Vitamin C serum in amber glass" src="'+B+'hf_20260912_110423_3b5dcf24-cc07-4f3b-8423-b597fffcdbfb.png"><span class="tag">GUIDE</span></div><b>AI Workflow Blueprint</b><i>Systems · step by step</i><s>RM 29.90</s></div>'+
-'<div class="vx-pgcard"><div class="ph"><img alt="Nourishing lotion jar on soft linen" src="'+B+'hf_20260912_110504_50ec81be-8341-447f-a0c2-a5673a465447.png"></div><b>Creator Template Pack</b><i>Templates · reusable</i><s>RM 19.90</s></div>'+
-'<div class="vx-pgcard"><div class="ph"><img alt="Three-piece Sunset Renewal skincare kit" src="'+B+'hf_20260912_110504_fd208d72-9112-4cde-b509-8d273b470c6f.png"><span class="tag">BUNDLE</span></div><b>Digital Resource Bundle</b><i>3 resources</i><s>RM 49.90 <span>RM 69.90</span></s></div>'+
-'<div class="vx-pgcard"><div class="ph"><img alt="Lightweight facial sunscreen beside clear water" src="'+B+'hf_20260912_110504_9731544c-a83b-48c4-bacb-e31e4d4b9f42.png"><span class="tag">NEW</span></div><b>Prompt System</b><i>AI · ready to use</i><s>RM 15.90</s></div>'+
-'</div><div class="vx-pgstrip"><span>Instant access</span><span>Pay in RM or Credits</span><span>Keep in Library</span><span>Member savings</span></div></div></div></div>'+
-'<div class="vx-stack">'+
-'<nav class="vx-nav" id="vxNav"><svg class="vx-mark" viewBox="0 0 48 48"><defs><linearGradient id="vxsw" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#8ef4ff"/><stop offset=".5" stop-color="#35d8ff"/><stop offset="1" stop-color="#0a86d8"/></linearGradient><linearGradient id="vxsw2" x1="40" y1="10" x2="10" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#a6f7ff"/><stop offset="1" stop-color="#0f9ae0" stop-opacity=".25"/></linearGradient></defs><g transform="rotate(-32 24 24)"><ellipse cx="24" cy="24" rx="18.5" ry="9.6" fill="none" stroke="url(#vxsw2)" stroke-width="3.1" stroke-linecap="round" stroke-dasharray="58 30" stroke-dashoffset="14"/><circle cx="41.4" cy="20.6" r="3.1" fill="#bff6ff"/></g><circle cx="24" cy="24" r="6.6" fill="url(#vxsw)"/><circle cx="24" cy="24" r="2.6" fill="#fff"/></svg>'+
-'<div class="vx-wm"><span class="vx-kick">DIGITAL</span><span class="vx-name" id="vxName">PROMPTLAB</span></div>'+
-'<button class="vx-burger" id="vxBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="vxNavmenu"><span></span><span></span><span></span></button>'+
-'<div class="vx-navmenu" id="vxNavmenu"><div class="vx-links" id="vxLinks"><a href="#/explore">Explore</a><a href="#/categories">Categories</a><a href="#/membership">Membership</a><a href="#/wallet">Credits</a><a href="#/library">Library</a></div><a class="vx-btn" href="#/explore"><span>Start exploring</span></a></div></nav>'+
-'<div class="vx-badge"><i><svg viewBox="5 1 14 22" preserveAspectRatio="none"><path d="M13.9 1.6 5.5 13.6a.7.7 0 0 0 .6 1.1h4.2l-1 7.7a.7.7 0 0 0 1.25.55l8.3-12.1a.7.7 0 0 0-.6-1.1h-4.2l1-7.7a.7.7 0 0 0-1.25-.55Z" fill="rgba(16,112,152,.72)" stroke="rgba(190,236,255,.6)" stroke-width="1.6" stroke-linejoin="round"/></svg></i><b>Curated digital marketplace</b></div>'+
-'<div class="vx-h1 l1" id="vxH1a">DISCOVER DIGITAL</div><div class="vx-h1" id="vxH1b">RESOURCES</div>'+
-'<div class="vx-sub s1" id="vxSub1"><b><b>Guides, templates, books & AI systems</b> — curated in one place</div><div class="vx-sub" id="vxSub2">Preview first, purchase once, keep it in your Library.</div>'+
-'<a class="vx-btn vx-cta2" href="#/explore"><span>Explore store</span></a>'+
-'</div></div>'+
-'<a class="vx-wa" href="#/account" aria-label="Account"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="11" r="5" fill="#fff"/><path d="M7 27c0-5.5 4-9 9-9s9 3.5 9 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></a>'+
-'</section>';
+  let featured=s.ps.filter(p=>p.is_featured).slice(0,6);
+  if(!featured.length)featured=s.ps.slice(0,6);
+  let cats=s.cs.slice(0,6);
+  let preview=featured.slice(0,3);
+  return `<div class='store-home'>
+    <section class='store-hero'>
+      <div class='w store-hero-grid'>
+        <div class='store-hero-copy'>
+          <span class='pill'>CURATED DIGITAL MARKETPLACE</span>
+          <h1>Digital resources<br><span>worth keeping.</span></h1>
+          <p>Guides, templates, prompt systems, workflows and practical digital products. Preview the value first, then buy in RM or use Credits.</p>
+          <div class='store-hero-actions'>
+            <a class='btn primary' href='#/explore'>Explore store</a>
+            <a class='btn ghost' href='#/categories'>Browse categories</a>
+          </div>
+          <div class='store-proof'>
+            <span><b>Preview first</b><small>Know what you are buying</small></span>
+            <span><b>Pay your way</b><small>RM or store Credits</small></span>
+            <span><b>Keep access</b><small>Purchased items stay in Library</small></span>
+          </div>
+        </div>
+        <div class='store-hero-visual'>
+          <div class='hero-orbit'></div>
+          ${preview.map((p,i)=>`<a class='hero-product hp${i+1}' href='#/product/${E(p.slug)}'>
+            <div class='hero-product-img'>${p.cover_image_url?`<img src='${E(p.cover_image_url)}' alt='${E(p.title)}' loading='eager'>`:''}<span></span></div>
+            <small>${E(p.product_type||'Resource')}</small>
+            <b>${E(p.title)}</b>
+            <em>${+p.price_coins===0?'Free':money(cashPrice(p))}</em>
+          </a>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class='w home-section'>
+      <div class='home-section-head'>
+        <div><span class='tag'>POPULAR RESOURCES</span><h2>Start with these.</h2></div>
+        <a href='#/explore'>View all →</a>
+      </div>
+      <div class='grid home-featured-grid'>${featured.map(card).join('')}</div>
+    </section>
+
+    <section class='w home-section'>
+      <div class='home-section-head'>
+        <div><span class='tag'>BROWSE BY CATEGORY</span><h2>Find the format you need.</h2></div>
+        <a href='#/categories'>All categories →</a>
+      </div>
+      <div class='home-category-grid'>
+        ${cats.map(c=>`<a class='home-category-card' href='#/explore?cat=${encodeURIComponent(c.slug)}'><span>↗</span><b>${E(c.name)}</b><small>${E(c.description||'Browse resources in this category.')}</small></a>`).join('')}
+      </div>
+    </section>
+
+    <section class='w home-section'>
+      <div class='home-commerce-grid'>
+        <article class='home-commerce-card accent'>
+          <span class='tag'>MEMBERSHIP</span>
+          <h2>Buy less expensively when you use the store often.</h2>
+          <p>Member pricing applies to eligible products while your membership is active.</p>
+          <a class='btn primary' href='#/membership'>See Membership</a>
+        </article>
+        <article class='home-commerce-card'>
+          <span class='tag'>STORE CREDITS</span>
+          <h2>Load Credits once. Use them across the store.</h2>
+          <p>New customer accounts receive 25 welcome Credits. Additional packs are available from your wallet.</p>
+          <a class='btn ghost' href='#/wallet'>View Credits</a>
+        </article>
+      </div>
+    </section>
+
+    <section class='w home-section'>
+      <div class='home-section-head'>
+        <div><span class='tag'>HOW IT WORKS</span><h2>Simple from preview to Library.</h2></div>
+      </div>
+      <div class='home-steps'>
+        <article><i>01</i><b>Browse</b><p>Find a resource by category, type or search.</p></article>
+        <article><i>02</i><b>Preview</b><p>Read what it does before spending anything.</p></article>
+        <article><i>03</i><b>Purchase</b><p>Pay in RM or unlock with Credits.</p></article>
+        <article><i>04</i><b>Keep</b><p>Your purchased resource stays in your Library.</p></article>
+      </div>
+    </section>
+
+    <section class='w home-section home-sponsored'>
+      ${ad('homepage')}
+    </section>
+  </div>`;
 }
 function explore(){return `<div class='w page'><span class='tag'>DIGITAL STORE</span><h1 class='title'>Explore useful resources.</h1><p class='lead'>Prompts, books, templates, workflows, guides, code, bundles and more.</p><div class='search'><input id='q' class='input' placeholder='Search products…'><select id='cat'><option value='all'>All categories</option>${s.cs.map(c=>`<option value='${E(c.slug)}'>${E(c.name)}</option>`).join('')}</select></div>${ad('explore')}${ad('browse_grid')}<div id='grid' class='grid'>${s.ps.map(card).join('')}</div></div>`}
 function categoriesPage(){let types=[...new Set(s.ps.map(p=>p.product_type).filter(Boolean))].sort();return `<div class='w page'><span class='tag'>CATEGORIES</span><h1 class='title'>Browse the store your way.</h1><p class='lead'>Explore by subject or by product format.</p><h2>Subjects</h2><div class='category-grid'>${s.cs.map(c=>`<a class='category-box' href='#/explore?cat=${encodeURIComponent(c.slug)}'><b>${E(c.name)}</b><span>${E(c.description||'Browse this category.')}</span></a>`).join('')}</div><h2 style='margin-top:42px'>Product types</h2><div class='quick-chips'>${types.map(t=>`<a class='quick-chip' href='#/explore?type=${encodeURIComponent(t)}'>${E(t)}</a>`).join('')}</div></div>`}
@@ -1704,4 +1808,4 @@ function wireAdmin(ps,ads,plans,packs){
   af.addEventListener('submit',async e=>{e.preventDefault();let d=formObj(af),m=document.getElementById('adMsg');m.textContent='Saving…';let row={sponsor_name:d.sponsor_name,title:d.title,body:d.body||null,image_url:d.image_url||null,destination_url:d.destination_url,cta_label:d.cta_label||'Learn more',placement:d.placement,is_active:af.is_active.checked};let r=d.id?await sb.from('ads').update(row).eq('id',d.id):await sb.from('ads').insert(row);if(r.error){m.textContent=r.error.message;return}m.textContent='Saved.';toast('Referral banner saved');await pub();adminPage()})
 }
 function adWires(){document.querySelectorAll('.sponsored-link[data-ad-id]').forEach(el=>el.addEventListener('click',()=>{sb.from('ad_events').insert({ad_id:el.dataset.adId,user_id:s.u?.id||null,event_type:'click'}).then(()=>{})},{once:true}))}function ew(){let q=document.getElementById('q'),c=document.getElementById('cat'),g=document.getElementById('grid'),raw=R(),qs=raw.includes('?')?raw.split('?')[1]:'',params=new URLSearchParams(qs),initQ=params.get('q')||'',initCat=params.get('cat')||'all',initType=params.get('type')||'',freeOnly=params.get('free')==='1';if(q)q.value=initQ;if(c&&[...c.options].some(o=>o.value===initCat))c.value=initCat;let f=()=>{let t=(q?.value||'').toLowerCase(),v=c?.value||'all',l=s.ps.filter(p=>(v==='all'||p.categories?.slug===v)&&(!initType||p.product_type===initType)&&(!freeOnly||+p.price_coins===0)&&(!t||[p.title,p.short_description,p.model,p.product_type,p.delivery_type,p.categories?.name].join(' ').toLowerCase().includes(t)));g.innerHTML=l.map(card).join('')||'<div class="empty">No matches.</div>'};q?.addEventListener('input',f);c?.addEventListener('change',f);f()}
-async function render(){let x=R(),path=x.split('?')[0];document.body.classList.toggle('auth-mode',path==='/account'&&!s.u);document.body.classList.toggle('vertex-home-mode',path==='/');document.body.classList.remove('home-hero-mode');trackPage(x);if(path==='/')app.innerHTML=home();else if(path==='/explore'){app.innerHTML=explore();ew()}else if(path==='/categories')app.innerHTML=categoriesPage();else if(path.startsWith('/product/')||path.startsWith('/prompt/')){await detail(decodeURIComponent(path.split('/')[2]||''));wires();return}else if(path==='/library')app.innerHTML=library();else if(path==='/saved')app.innerHTML=library(true);else if(path==='/wallet'){await wallet();wires();return}else if(path==='/membership')app.innerHTML=membership();else if(path.startsWith('/checkout/')){let z=path.split('/');app.innerHTML=checkout(z[2]||'',decodeURIComponent(z[3]||''))}else if(path==='/about')app.innerHTML=about();else if(path==='/privacy')app.innerHTML=privacy();else if(path==='/rights')app.innerHTML=rightsPage();else if(path==='/account')app.innerHTML=account();else if(path==='/admin'){await adminPage();return}else app.innerHTML='<div class="w page"><div class="empty">Page not found.</div></div>';wires();adWires()}window.addEventListener('hashchange',render);sb.auth.onAuthStateChange(async(_,session)=>{s.u=session?.user||null;if(s.u)await usr();else{s.p=null;s.w={balance:0};s.membership={tier:'customer',status:'active'};s.un=new Set();s.fav=new Set();s.admin=false}nav();render()});(async()=>{let{data:{session}}=await sb.auth.getSession();s.u=session?.user||null;await pub();if(s.u)await usr();nav();render()})();</script></body></html>
+async function render(){let x=R(),path=x.split('?')[0];document.body.classList.toggle('auth-mode',path==='/account'&&!s.u);document.body.classList.remove('vertex-home-mode');document.body.classList.remove('home-hero-mode');trackPage(x);if(path==='/')app.innerHTML=home();else if(path==='/explore'){app.innerHTML=explore();ew()}else if(path==='/categories')app.innerHTML=categoriesPage();else if(path.startsWith('/product/')||path.startsWith('/prompt/')){await detail(decodeURIComponent(path.split('/')[2]||''));wires();return}else if(path==='/library')app.innerHTML=library();else if(path==='/saved')app.innerHTML=library(true);else if(path==='/wallet'){await wallet();wires();return}else if(path==='/membership')app.innerHTML=membership();else if(path.startsWith('/checkout/')){let z=path.split('/');app.innerHTML=checkout(z[2]||'',decodeURIComponent(z[3]||''))}else if(path==='/about')app.innerHTML=about();else if(path==='/privacy')app.innerHTML=privacy();else if(path==='/rights')app.innerHTML=rightsPage();else if(path==='/account')app.innerHTML=account();else if(path==='/admin'){await adminPage();return}else app.innerHTML='<div class="w page"><div class="empty">Page not found.</div></div>';wires();adWires()}window.addEventListener('hashchange',render);sb.auth.onAuthStateChange(async(_,session)=>{s.u=session?.user||null;if(s.u)await usr();else{s.p=null;s.w={balance:0};s.membership={tier:'customer',status:'active'};s.un=new Set();s.fav=new Set();s.admin=false}nav();render()});(async()=>{let{data:{session}}=await sb.auth.getSession();s.u=session?.user||null;await pub();if(s.u)await usr();nav();render()})();</script></body></html>
