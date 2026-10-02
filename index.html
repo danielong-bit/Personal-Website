@@ -815,52 +815,7 @@ function card(p){let o=hasAccess(p),photo=p.cover_image_url?`<img class='cover-p
 function home(){
   let popular=s.ps.slice(0,8),free=s.ps.filter(p=>+p.price_coins===0&&!p.member_only).slice(0,4);
   let cats=s.cs.slice(0,6),plan=activePlan();
-  return `<div>
-    <section class='pl-stage' data-home-hero>
-      <video class='pl-photo' autoplay muted loop playsinline preload='auto' aria-hidden='true' disablepictureinpicture>
-        <source src='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260930_000857_e98f4291-826d-46eb-9a28-8022b5fb7e62.mp4' type='video/mp4'>
-      </video>
-
-      <div class='pl-band' aria-hidden='true'>
-        <div class='pl-band-top'></div>
-        <div class='pl-wordmark'>
-          <svg viewBox='0 0 1280 190' preserveAspectRatio='none' aria-hidden='true'>
-            <defs>
-              <mask id='promptlabCutout'>
-                <rect x='0' y='0' width='1280' height='190' fill='white'/>
-                <text x='640' y='158' text-anchor='middle' font-size='178' textLength='1252' lengthAdjust='spacingAndGlyphs' fill='black'>PROMPTLAB</text>
-              </mask>
-            </defs>
-            <rect x='0' y='0' width='1280' height='190' fill='#000' mask='url(#promptlabCutout)'/>
-          </svg>
-          ${Array.from({length:9},(_,i)=>`<span class='pl-lid'></span>`).join('')}
-        </div>
-        <div class='pl-band-bot'></div>
-      </div>
-
-      <nav class='pl-nav' aria-label='Homepage'>
-        <button class='pl-menu pl-enter' type='button' aria-expanded='false'><span class='pl-menu-icon'></span><span class='pl-menu-label'>MENU</span></button>
-        <div class='pl-navlinks pl-enter'>
-          <a href='#/explore'>EXPLORE</a>
-          <a href='#/categories'>CATEGORIES</a>
-          <a href='#/membership'>MEMBERSHIP</a>
-          <a href='#/wallet'>CREDITS</a>
-          <a href='#/library'>LIBRARY</a>
-        </div>
-        <p class='pl-tagline pl-enter'>CURATED DIGITAL RESOURCES</p>
-        <a class='pl-cta' href='#/explore'>
-          <svg viewBox='0 0 10 10' aria-hidden='true'><path d='M1.5.5V6.5H6.4' fill='none' stroke='currentColor' stroke-width='1.35'/><path d='M5.7 4 9 6.5 5.7 9Z' fill='currentColor'/></svg>
-          <span>START EXPLORING</span>
-        </a>
-      </nav>
-
-      <section class='pl-copy' aria-label='Introduction'>
-        <p class='pl-headline'>DISCOVER DIGITAL RESOURCES WORTH KEEPING</p>
-        <div class='pl-meta pl-enter'><span class='pl-meta-dot'></span><span>PREVIEW BEFORE YOU BUY</span><span>•</span><span>RM + CREDITS</span><span>•</span><span>YOUR LIBRARY, ANYTIME</span></div>
-      </section>
-    </section>
-
-    <div class='w'>
+  return `<div><div class='w'>
       <section class='home-section home-discovery'>
         <div class='market-hero-inner'>
           <span class='tag'>✦ CURATED DIGITAL MARKETPLACE</span>
@@ -1010,9 +965,7 @@ function authScreen(mode='login'){let register=mode==='register';return `<div cl
 function account(){if(s.u){let tier=s.membership?.tier||'customer',member=['member','vip'].includes(tier);return `<div class='w page'><span class='tag'>ACCOUNT</span><h1 class='title'>Hey, ${E(s.p?.display_name||s.u.email.split('@')[0])}.</h1><div class='auth'><div class='panel'><div class='info'><span>Email</span><b>${E(s.u.email)}</b></div><div class='info'><span>Account</span><b><span class='member-badge'>${member?'★ '+E(tier.toUpperCase()):'CUSTOMER'}</span></b></div><div class='info'><span>Credits</span><b class='price'>${s.w.balance}</b></div><div class='info'><span>Purchased</span><b>${s.un.size}</b></div><div class='info'><span>Saved</span><b>${s.fav.size}</b></div></div><div class='panel'><h3>${member?'Membership active':'Customer account'}</h3><p class='small'>${member?'Your paid membership is active.':'All new accounts start as Customer. Member access is activated only after a paid membership is successfully completed.'}</p>${s.admin?`<a class='btn primary' style='display:inline-block;margin-right:8px' href='#/admin'>Admin dashboard</a>`:''}<button id='logout' class='btn ghost'>Log out</button></div></div></div>`}let params=new URLSearchParams((R().split('?')[1]||''));return authScreen(params.get('mode')==='register'?'register':'login')}
 
 function wires(){
-  document.getElementById('homeSearch')?.addEventListener('submit',e=>{e.preventDefault();let q=new FormData(e.currentTarget).get('q')?.trim();G('/explore'+(q?'?q='+encodeURIComponent(q):''))});
-  let hero=document.querySelector('[data-home-hero]');if(hero){let nav=hero.querySelector('.pl-nav'),menu=hero.querySelector('.pl-menu'),label=hero.querySelector('.pl-menu-label'),video=hero.querySelector('video');let setOpen=open=>{nav?.classList.toggle('is-open',open);menu?.setAttribute('aria-expanded',String(open));if(label)label.textContent=open?'CLOSE':'MENU'};menu?.addEventListener('click',()=>setOpen(!nav.classList.contains('is-open')));hero.querySelectorAll('.pl-navlinks a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));if(matchMedia('(prefers-reduced-motion: reduce)').matches){video?.removeAttribute('autoplay');video?.pause()}else requestAnimationFrame(()=>requestAnimationFrame(()=>hero.classList.add('entered')));}
-  document.getElementById('logout')?.addEventListener('click',async()=>{await sb.auth.signOut();G('/')});
+  document.getElementById('homeSearch')?.addEventListener('submit',e=>{e.preventDefault();let q=new FormData(e.currentTarget).get('q')?.trim();G('/explore'+(q?'?q='+encodeURIComponent(q):''))});  document.getElementById('logout')?.addEventListener('click',async()=>{await sb.auth.signOut();G('/')});
   document.querySelectorAll('.auth-mode-switch').forEach(b=>b.addEventListener('click',()=>G('/account?mode='+b.dataset.mode)));
   document.querySelectorAll('.password-toggle').forEach(b=>b.addEventListener('click',()=>{let input=b.parentElement.querySelector('input'),show=input.type==='password';input.type=show?'text':'password';b.innerHTML=eyeIcon(show);b.setAttribute('aria-label',show?'Hide password':'Show password')}));
   document.querySelectorAll('.social-auth').forEach(b=>b.addEventListener('click',()=>toast((b.dataset.provider==='google'?'Google':'GitHub')+' sign-in is not connected yet')));
@@ -1069,4 +1022,4 @@ function wireAdmin(ps,ads,plans,packs){
   af.addEventListener('submit',async e=>{e.preventDefault();let d=formObj(af),m=document.getElementById('adMsg');m.textContent='Saving…';let row={sponsor_name:d.sponsor_name,title:d.title,body:d.body||null,image_url:d.image_url||null,destination_url:d.destination_url,cta_label:d.cta_label||'Learn more',placement:d.placement,is_active:af.is_active.checked};let r=d.id?await sb.from('ads').update(row).eq('id',d.id):await sb.from('ads').insert(row);if(r.error){m.textContent=r.error.message;return}m.textContent='Saved.';toast('Referral banner saved');await pub();adminPage()})
 }
 function adWires(){document.querySelectorAll('.sponsored-link[data-ad-id]').forEach(el=>el.addEventListener('click',()=>{sb.from('ad_events').insert({ad_id:el.dataset.adId,user_id:s.u?.id||null,event_type:'click'}).then(()=>{})},{once:true}))}function ew(){let q=document.getElementById('q'),c=document.getElementById('cat'),g=document.getElementById('grid'),raw=R(),qs=raw.includes('?')?raw.split('?')[1]:'',params=new URLSearchParams(qs),initQ=params.get('q')||'',initCat=params.get('cat')||'all',initType=params.get('type')||'',freeOnly=params.get('free')==='1';if(q)q.value=initQ;if(c&&[...c.options].some(o=>o.value===initCat))c.value=initCat;let f=()=>{let t=(q?.value||'').toLowerCase(),v=c?.value||'all',l=s.ps.filter(p=>(v==='all'||p.categories?.slug===v)&&(!initType||p.product_type===initType)&&(!freeOnly||+p.price_coins===0)&&(!t||[p.title,p.short_description,p.model,p.product_type,p.delivery_type,p.categories?.name].join(' ').toLowerCase().includes(t)));g.innerHTML=l.map(card).join('')||'<div class="empty">No matches.</div>'};q?.addEventListener('input',f);c?.addEventListener('change',f);f()}
-async function render(){let x=R(),path=x.split('?')[0];document.body.classList.toggle('auth-mode',path==='/account'&&!s.u);document.body.classList.toggle('home-hero-mode',path==='/');trackPage(x);if(path==='/')app.innerHTML=home();else if(path==='/explore'){app.innerHTML=explore();ew()}else if(path==='/categories')app.innerHTML=categoriesPage();else if(path.startsWith('/product/')||path.startsWith('/prompt/')){await detail(decodeURIComponent(path.split('/')[2]||''));wires();return}else if(path==='/library')app.innerHTML=library();else if(path==='/saved')app.innerHTML=library(true);else if(path==='/wallet'){await wallet();wires();return}else if(path==='/membership')app.innerHTML=membership();else if(path.startsWith('/checkout/')){let z=path.split('/');app.innerHTML=checkout(z[2]||'',decodeURIComponent(z[3]||''))}else if(path==='/about')app.innerHTML=about();else if(path==='/privacy')app.innerHTML=privacy();else if(path==='/rights')app.innerHTML=rightsPage();else if(path==='/account')app.innerHTML=account();else if(path==='/admin'){await adminPage();return}else app.innerHTML='<div class="w page"><div class="empty">Page not found.</div></div>';wires();adWires()}window.addEventListener('hashchange',render);sb.auth.onAuthStateChange(async(_,session)=>{s.u=session?.user||null;if(s.u)await usr();else{s.p=null;s.w={balance:0};s.membership={tier:'customer',status:'active'};s.un=new Set();s.fav=new Set();s.admin=false}nav();render()});(async()=>{let{data:{session}}=await sb.auth.getSession();s.u=session?.user||null;await pub();if(s.u)await usr();nav();render()})();</script></body></html>
+async function render(){let x=R(),path=x.split('?')[0];document.body.classList.toggle('auth-mode',path==='/account'&&!s.u);document.body.classList.remove('home-hero-mode');trackPage(x);if(path==='/')app.innerHTML=home();else if(path==='/explore'){app.innerHTML=explore();ew()}else if(path==='/categories')app.innerHTML=categoriesPage();else if(path.startsWith('/product/')||path.startsWith('/prompt/')){await detail(decodeURIComponent(path.split('/')[2]||''));wires();return}else if(path==='/library')app.innerHTML=library();else if(path==='/saved')app.innerHTML=library(true);else if(path==='/wallet'){await wallet();wires();return}else if(path==='/membership')app.innerHTML=membership();else if(path.startsWith('/checkout/')){let z=path.split('/');app.innerHTML=checkout(z[2]||'',decodeURIComponent(z[3]||''))}else if(path==='/about')app.innerHTML=about();else if(path==='/privacy')app.innerHTML=privacy();else if(path==='/rights')app.innerHTML=rightsPage();else if(path==='/account')app.innerHTML=account();else if(path==='/admin'){await adminPage();return}else app.innerHTML='<div class="w page"><div class="empty">Page not found.</div></div>';wires();adWires()}window.addEventListener('hashchange',render);sb.auth.onAuthStateChange(async(_,session)=>{s.u=session?.user||null;if(s.u)await usr();else{s.p=null;s.w={balance:0};s.membership={tier:'customer',status:'active'};s.un=new Set();s.fav=new Set();s.admin=false}nav();render()});(async()=>{let{data:{session}}=await sb.auth.getSession();s.u=session?.user||null;await pub();if(s.u)await usr();nav();render()})();</script></body></html>
